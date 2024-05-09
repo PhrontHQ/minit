@@ -14,6 +14,21 @@
                 "--name",
                 "hello"
             ]
+        },
+        {
+            "type": "node",
+            "runtimeVersion": "20",
+            "request": "launch",
+            "name": "npm test",
+            "skipFiles": ["<node_internals>/**"],
+            "runtimeArgs": [
+                "--preserve-symlinks",
+                "--inspect",
+                "--trace-warnings",
+                // "--prof",
+                "--expose-internals",
+                "${workspaceFolder}/run-test.js"
+            ]
         }
     ]
 }
