@@ -1,9 +1,10 @@
 "use strict";
 
 var jasmine = require('jasmine-node');
-var sys = require('sys');
+var sys = require('util');
 var path = require('path');
 var Q = require("q");
+const process = require('process');
 
 //for(var key in jasmine) {
 //  global[key] = jasmine[key];

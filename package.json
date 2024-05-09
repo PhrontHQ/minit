@@ -1,21 +1,16 @@
 {
   "name": "minit",
   "version": "0.3.10",
-  "title": "Montage Assistant",
+  "title": "Mod Initializer",
   "homepage": "http://www.montage.org",
   "bugs": {
     "url": "http://github.com/montagejs/minit/issues"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/montagejs/minit.git"
+    "url": "https://github.com/PhrontHQ/minit.git"
   },
-  "licenses": [
-    {
-      "type": "BSD",
-      "url": "http://github.com/montagejs/minit/raw/master/LICENSE.md"
-    }
-  ],
+  "license": "BSD-3-Clause",
   "main": "main.js",
   "dependencies": {
     "commander": "~1.1.1",
@@ -27,12 +22,12 @@
     "joey": "~1.3.1"
   },
   "devDependencies": {
-    "jasmine-node": "~1.7.0",
+    "jasmine-node": "montagestudio/jasmine-node#master",
     "sandboxed-module": "~0.2.0",
     "mocks": "~0.0.11"
   },
   "engines": {
-    "node": "~0.10.2"
+    "node": "~20.13.0"
   },
   "bin": {
     "minit": "minit"

@@ -5,6 +5,8 @@ var fs = require('fs');
 var npm = require("npm");
 var Q = require('q');
 var removeDiacritics = require("diacritics").remove;
+const process = require('process');
+
 
 var _fromCamelToDashes = function(name) {
     var s1 = name.replace(/([A-Z])/g, function (g) { return "-"+g.toLowerCase(); });
