@@ -1,5 +1,5 @@
-var Montage = require("montage").Montage;
-var TestPageLoader = require("montage-testing/testpageloader").TestPageLoader;
+var Montage = require("mod/core/core").Montage;
+var TestPageLoader = require("mod/testing/testpageloader").TestPageLoader;
 
 TestPageLoader.queueTest("{{name}}-test", function(testPage) {
 

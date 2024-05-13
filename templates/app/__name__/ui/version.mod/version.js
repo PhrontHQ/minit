@@ -1,8 +1,8 @@
 /**
- * @module ui/version.reel
- * @requires montage/ui/component
+ * @module ui/version.mod
+ * @requires mod/ui/component
  */
-var Component = require("montage/ui/component").Component;
+var Component = require("mod/ui/component").Component;
 
 /**
  * @class Version

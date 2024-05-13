@@ -4,7 +4,7 @@
   "title": "Mod Initializer",
   "homepage": "http://www.montage.org",
   "bugs": {
-    "url": "http://github.com/montagejs/minit/issues"
+    "url": "http://github.com/PhrontHQ/minit/issues"
   },
   "repository": {
     "type": "git",

@@ -58,7 +58,7 @@ exports.Template = Object.create(TemplateBase, {
                 options.extendsName = "Montage";
             }
             if (!options.extendsModuleId) {
-                options.extendsModuleId = "montage/core/core";
+                options.extendsModuleId = "mod/core/core";
             }
 
         }

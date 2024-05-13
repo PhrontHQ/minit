@@ -2,11 +2,10 @@
     "name": "{{name}}",
     "version": "0.1.0",
     "dependencies": {
-        "montage": "~0.13.2",
-        "digit": "~0.3.1"
+        "mod": "github:PhrontHQ/mod#main",
+        "digit": "github:PhrontHQ/digit#main"
     },
     "devDependencies": {
-        "montage-testing": "0.2.0"
     },
     "exclude": [
         "run-tests.html",

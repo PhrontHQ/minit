@@ -1,10 +1,10 @@
 {{#copyright}}/* {{{copyright}}} */
 
 {{/copyright}}/**
- * @module ui/main.reel
- * @requires montage/ui/component
+ * @module ui/main.mod
+ * @requires mod/ui/component
  */
-var Component = require("montage/ui/component").Component;
+var Component = require("mod/ui/component").Component;
 
 /**
  * @class Main

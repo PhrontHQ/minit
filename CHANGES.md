@@ -9,7 +9,7 @@
    information such as the destination directory and sanitized name
  - Fix issues with `npm` not running well multiple times in the same process
  - Update `app` template to use short charset declaration
- - Ensure generated component `data-montage-id`s start with a lowercase letter
+ - Ensure generated component `data-mod-id`s start with a lowercase letter
  - Ensure `test` directories in templates are published
 
 ### v0.3.7

@@ -8,7 +8,7 @@
 
     <link rel="stylesheet" type="text/css" href="main.css">
 
-    <script type="text/montage-serialization">
+    <script type="text/mod-serialization">
     {
         "owner": {
             "properties": {
@@ -17,7 +17,7 @@
         },
 
         "exampleText": {
-            "prototype": "montage/ui/text.reel",
+            "prototype": "mod/ui/text.mod",
             "properties": {
                 "element": {"#": "exampleText"}
             },
@@ -29,7 +29,7 @@
     </script>
 </head>
 <body>
-    <div data-montage-id="main" class="Main">
+    <div data-mod-id="main" class="Main">
 
     </div>
 </body>
@@ -39,9 +39,9 @@
 <head>
     <meta charset="utf-8">
     <link href="main.css" rel="stylesheet">
-    <link href="main.json" rel="serialization" type="text/montage-serialization">
+    <link href="main.json" rel="serialization" type="text/mod-serialization">
 </head>
-<body data-montage-id="main">
+<body data-mod-id="main">
 
     <h1>{{name}}</h1>
 
@@ -58,7 +58,7 @@
 
             <tr>
                 <td><a href="#">Example</a></td>
-                <td>Hello, <span data-montage-id="exampleText"></span></td>
+                <td>Hello, <span data-mod-id="exampleText"></span></td>
             </tr>
 
         </tbody>

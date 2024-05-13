@@ -2,10 +2,9 @@
     "name": "{{name}}",
     "version": "0.1.0",
     "dependencies": {
-        "montage": "~0.13.1"
+        "mod": "github:PhrontHQ/mod#main"
     },
     "devDependencies": {
-        "montage-testing": "0.2.0"
     },
     "exclude": [
         "overview.html",

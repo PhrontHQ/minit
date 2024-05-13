@@ -1,4 +1,4 @@
-require("montage-testing").run(require,[
+require("mod/testing/run").run(require,[
     // Please keep in alphabetical order
 
 ]);
