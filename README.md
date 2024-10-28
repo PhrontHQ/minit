@@ -1,11 +1,13 @@
 
-# Minit – the Montage Initializer
+# Minit – the Mod Initializer
+
+===============================
 
 [![npm version](https://img.shields.io/npm/v/minit.svg?style=flat)](https://www.npmjs.com/package/minit)
 
 [![Build Status](https://travis-ci.org/montagejs/minit.svg?branch=master)](http://travis-ci.org/montagejs/minit)
 
-Minit helps you build [Montage](http://montagejs.org/) applications by generating template applications and components for you.
+Minit helps you build [Mod]([[http://montagejs.org/](https://github.com/PhrontHQ/mod)](<https://github.com/PhrontHQ/mod>]) applications by generating template applications and components for you.
 
 ## Usage
 
@@ -121,7 +123,6 @@ Run `minit --help` for details of the templates available and their usages. The 
 
 ## Using minit as a package
 
-
 The minit package exports a create function that accepts a template name and an options object. The available options
 are the same as the command line options except that they are camel cased (--package-home becomes packageHome).
 The create function returns a promise.
@@ -132,4 +133,3 @@ var minitCreate = require("minit").create;
 minitCreate(templateName, options).done();
 
 ```
-
