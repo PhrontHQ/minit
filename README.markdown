@@ -1,7 +1,7 @@
-Minit – the Montage Initializer
+Minit – the Mod Initializer
 ===============================
 
-Minit helps you build [Montage](http://montagejs.org/) applications by generating template applications and components for you.
+Minit helps you build [Mod]([[http://montagejs.org/](https://github.com/PhrontHQ/mod)](https://github.com/PhrontHQ/mod]) applications by generating template applications and components for you.
 
 Usage
 -----
