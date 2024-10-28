@@ -7,7 +7,7 @@
 
 [![Build Status](https://travis-ci.org/montagejs/minit.svg?branch=master)](http://travis-ci.org/montagejs/minit)
 
-Minit helps you build [Mod]([https://github.com/PhrontHQ/mod](https://github.com/PhrontHQ/mod)) applications by generating template applications and components for you.
+Minit helps you build [Mod](https://github.com/PhrontHQ/mod) applications by generating template applications and components for you.
 
 ## Usage
 
