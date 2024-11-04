@@ -66,10 +66,10 @@ describe("template-base", function () {
             });
 
             osMock = {
-                tmpDir: function() {
-                    return "/minit_home"
+                tmpdir: function () {
+                    return "/minit_home";
                 }
-            }
+            };
 
             templateConfig = {};
             templateConfig.minitHome = "/minit_home";
