@@ -1,0 +1,5 @@
+.vscode
+templates
+**/*.md
+**/*.yml
+package-lock.json
