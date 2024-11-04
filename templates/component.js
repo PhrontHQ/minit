@@ -46,7 +46,7 @@ exports.Template = Object.create(ModuleTemplate, {
                 options.extendsModuleId = "mod/ui/component";
             }
 
-            options.extensionName = "reel";
+            options.extensionName = "mod";
 
             ModuleTemplate.didSetOptions.call(this, options);
 
