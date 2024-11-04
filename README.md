@@ -129,4 +129,3 @@ var minitCreate = require("minit").create;
 minitCreate(templateName, options).done();
 
 ```
-

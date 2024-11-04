@@ -1,4 +1,4 @@
-xdescribe("programmatic", function() {
+xdescribe("programmatic", function () {
     var minitCreate = require("../main").create;
 
     minitCreate("app", {

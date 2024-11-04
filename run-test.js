@@ -1,10 +1,10 @@
 "use strict";
 
-var jasmine = require('jasmine-node');
-var sys = require('util');
-var path = require('path');
+var jasmine = require("jasmine-node");
+var sys = require("util");
+var path = require("path");
 var Q = require("q");
-const process = require('process');
+const process = require("process");
 
 //for(var key in jasmine) {
 //  global[key] = jasmine[key];
@@ -19,13 +19,21 @@ var junitreport = {
     useDotNotation: false
 };
 
-process.argv.forEach(function(arg){
-    switch(arg) {
-          case '--color': showColors = true; break;
-          case '--noColor': showColors = false; break;
-          case '--verbose': isVerbose = true; break;
-          case '--junit': junitreport.report = true; break;
-      }
+process.argv.forEach(function (arg) {
+    switch (arg) {
+        case "--color":
+            showColors = true;
+            break;
+        case "--noColor":
+            showColors = false;
+            break;
+        case "--verbose":
+            isVerbose = true;
+            break;
+        case "--junit":
+            junitreport.report = true;
+            break;
+    }
 });
 
 /**
@@ -39,12 +47,15 @@ jasmine.Block.prototype.execute = function (onComplete) {
         // It seems Jasmine likes to return the suite if you pass it anything.
         // So make sure it's a promise first.
         if (result && typeof result.then === "function") {
-            Q.timeout(result, 500).then(function () {
-                onComplete();
-            }, function (error) {
-                spec.fail(error);
-                onComplete();
-            });
+            Q.timeout(result, 500).then(
+                function () {
+                    onComplete();
+                },
+                function (error) {
+                    spec.fail(error);
+                    onComplete();
+                }
+            );
         } else if (this.func.length === 0) {
             onComplete();
         }
@@ -54,18 +65,16 @@ jasmine.Block.prototype.execute = function (onComplete) {
     }
 };
 
-
 jasmine.executeSpecsInFolder({
-    "specFolders": [__dirname+ "/test"],
-    "onComplete": function(runner, log){
-      if (runner.results().failedCount == 0) {
-        process.exit(0);
-      }
-      else {
-        process.exit(1);
-      }
+    specFolders: [__dirname + "/test"],
+    onComplete: function (runner, log) {
+        if (runner.results().failedCount == 0) {
+            process.exit(0);
+        } else {
+            process.exit(1);
+        }
     },
-    "isVerbose": isVerbose,
-    "showColors": showColors,
-    "junitreport": junitreport
+    isVerbose: isVerbose,
+    showColors: showColors,
+    junitreport: junitreport
 });
