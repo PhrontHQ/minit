@@ -7,11 +7,11 @@ try {
     program.parse(process.argv);
 
     if (program.args.length === 0) {
-       program.help();
+        program.help();
     } else {
         var commandName = program.args[0];
 
-        var commandNameMap = program.commands.reduce(function(map, command) {
+        var commandNameMap = program.commands.reduce(function (map, command) {
             map[command.name] = true;
             return map;
         }, {});
@@ -20,10 +20,8 @@ try {
             throw new ArgumentError("Unknown command '" + commandName + "'");
         }
     }
-
 } catch (err) {
     if (err instanceof ArgumentError) {
-
         console.error("\n  Error: " + err.message);
 
         var command = program.args[0];
@@ -37,8 +35,3 @@ try {
         throw err;
     }
 }
-
-
-
-
-

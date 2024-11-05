@@ -1,6 +1,6 @@
 /*global describe,beforeEach,it,expect */
 
-var SandboxedModule = require('sandboxed-module');
+var SandboxedModule = require("sandboxed-module");
 var Command = require("commander").Command;
 
 var TemplateBase = require("../../lib/template-base").TemplateBase;
@@ -15,36 +15,29 @@ describe("template-base", function () {
         base = TemplateBase.newWithDirectory(directory);
 
         expect(base.directory).toBe(directory);
-
-     });
+    });
 
     describe("default template options", function () {
         var testCommand;
         var Template;
-        beforeEach(function() {
-
-            Template = SandboxedModule.require('../../lib/template-base').TemplateBase;
+        beforeEach(function () {
+            Template = SandboxedModule.require("../../lib/template-base").TemplateBase;
 
             testCommand = new Command();
-
         });
         it("should have a --destination option", function () {
+            var command = Object.create(Template).addOptions(testCommand);
 
-                var command = Object.create(Template).addOptions(testCommand);
-
-                expect(command.optionFor("-d")).toBeDefined();
-                expect(command.optionFor("--destination")).toBeDefined();
-
+            expect(command.optionFor("-d")).toBeDefined();
+            expect(command.optionFor("--destination")).toBeDefined();
         });
 
         it("should have --package-home option", function () {
-
             var command = Object.create(Template).addOptions(testCommand);
 
             expect(command.optionFor("-p")).toBeDefined();
             expect(command.optionFor("--package-home")).toBeDefined();
         });
-
     });
 
     describe("generate files based on template", function () {
@@ -53,21 +46,21 @@ describe("template-base", function () {
         var aMockQFS;
         var osMock;
 
-        beforeEach(function() {
+        beforeEach(function () {
             aMockQFS = QMock({
                 "minit_home/templates": {
-                    "testTemplate": {
+                    testTemplate: {
                         "__name__-test.js": 1
                     },
                     "testTemplate.js": 1
                 },
-                "package_home": {
-                   "package.json": 1
+                package_home: {
+                    "package.json": 1
                 }
             });
 
             osMock = {
-                tmpDir: function() {
+                tmpDir: function () {
                     return "/minit_home";
                 }
             };
@@ -80,7 +73,7 @@ describe("template-base", function () {
             var TemplateBase = SandboxedModule.require("../../lib/template-base", {
                 requires: {
                     "q-io/fs": aMockQFS,
-                    "os": osMock
+                    os: osMock
                 }
             }).TemplateBase;
 
@@ -93,11 +86,12 @@ describe("template-base", function () {
 
         it("should rename generated files", function () {
             templateConfig.name = "mine";
-            return testTemplate.process(templateConfig)
-                .then(function() {
+            return testTemplate
+                .process(templateConfig)
+                .then(function () {
                     return aMockQFS.exists("/package_home/mine-test.js");
                 })
-                .then(function(exists) {
+                .then(function (exists) {
                     expect(exists).toBe(true);
                 });
         });
@@ -105,17 +99,20 @@ describe("template-base", function () {
         it("should expand the template at the specified destination", function () {
             templateConfig.name = "mine";
             templateConfig.destination = "destination";
-            return testTemplate.process(templateConfig)
-                .then(function() {
+            return testTemplate
+                .process(templateConfig)
+                .then(function () {
                     return aMockQFS.exists("/package_home/destination/mine-test.js");
                 })
-                .then(function(exists) {
+                .then(function (exists) {
                     expect(exists).toBe(true);
                 });
         });
 
         it("interpolates strings correctly", function () {
-            var result = testTemplate.applyTransform("before {{replace}} after", {replace: "a/b/c"});
+            var result = testTemplate.applyTransform("before {{replace}} after", {
+                replace: "a/b/c"
+            });
             expect(result).toEqual("before a/b/c after");
         });
     });

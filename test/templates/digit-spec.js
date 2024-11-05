@@ -1,18 +1,17 @@
 /*global describe,beforeEach,it,expect */
 
-var SandboxedModule = require('sandboxed-module');
+var SandboxedModule = require("sandboxed-module");
 var Command = require("commander").Command;
 
 describe("digit template", function () {
     var testCommand;
     var Template;
-    beforeEach(function() {
-
-        Template = SandboxedModule.require('../../templates/digit', {
+    beforeEach(function () {
+        Template = SandboxedModule.require("../../templates/digit", {
             requires: {
-                '../lib/template-base': {
+                "../lib/template-base": {
                     TemplateBase: {
-                        addOptions: function(command) {
+                        addOptions: function (command) {
                             return command;
                         }
                     }
@@ -21,7 +20,6 @@ describe("digit template", function () {
         }).Template;
 
         testCommand = new Command();
-
     });
 
     it("should have a commandDescription defined on prototype", function () {
@@ -33,7 +31,6 @@ describe("digit template", function () {
     });
 
     describe("command", function () {
-
         it("should have --name option", function () {
             var command = Object.create(Template).addOptions(testCommand);
 
@@ -92,5 +89,4 @@ describe("digit template", function () {
             expect(options.name).toEqual("rateau");
         });
     });
-
 });

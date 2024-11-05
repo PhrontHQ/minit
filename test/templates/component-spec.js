@@ -1,18 +1,17 @@
 /*global describe,beforeEach,it,expect */
 
-var SandboxedModule = require('sandboxed-module');
+var SandboxedModule = require("sandboxed-module");
 var Command = require("commander").Command;
 
 describe("component template", function () {
     var testCommand;
     var Template;
-    beforeEach(function() {
-
-        Template = SandboxedModule.require('../../templates/component', {
+    beforeEach(function () {
+        Template = SandboxedModule.require("../../templates/component", {
             requires: {
-                '../lib/template-base': {
+                "../lib/template-base": {
                     TemplateBase: {
-                        addOptions: function(command) {
+                        addOptions: function (command) {
                             return command;
                         }
                     }
@@ -21,7 +20,6 @@ describe("component template", function () {
         }).Template;
 
         testCommand = new Command();
-
     });
 
     it("should have a commandDescription defined on prototype", function () {
@@ -33,7 +31,6 @@ describe("component template", function () {
     });
 
     describe("command", function () {
-
         it("should have --name option", function () {
             var command = Object.create(Template).addOptions(testCommand);
 
@@ -55,10 +52,10 @@ describe("component template", function () {
         });
 
         it("should have --extends-module-id option", function () {
-             var command = Object.create(Template).addOptions(testCommand);
+            var command = Object.create(Template).addOptions(testCommand);
 
-             expect(command.optionFor("--extends-module-id")).toBeDefined();
-         });
+            expect(command.optionFor("--extends-module-id")).toBeDefined();
+        });
 
         it("should have --copyright option", function () {
             var command = Object.create(Template).addOptions(testCommand);
@@ -66,7 +63,6 @@ describe("component template", function () {
             expect(command.optionFor("-c")).toBeDefined();
             expect(command.optionFor("--copyright")).toBeDefined();
         });
-
     });
 
     describe("option validation", function () {
@@ -127,5 +123,4 @@ describe("component template", function () {
             expect(options.exportedName).toEqual("MyComponent");
         });
     });
-
 });

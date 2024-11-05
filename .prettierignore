@@ -1,0 +1,9 @@
+.vscode
+**/*.md
+**/*.yml
+package-lock.json
+package.json
+.prettierrc
+**/__name__*/**
+**/__locale__/**
+**/__name__.js
