@@ -1,18 +1,17 @@
 /*global describe,beforeEach,it,expect */
 
-var SandboxedModule = require('sandboxed-module');
+var SandboxedModule = require("sandboxed-module");
 var Command = require("commander").Command;
 
 describe("app template", function () {
     var testCommand;
     var Template;
-    beforeEach(function() {
-
-        Template = SandboxedModule.require('../../templates/app', {
+    beforeEach(function () {
+        Template = SandboxedModule.require("../../templates/app", {
             requires: {
-                '../lib/template-base': {
+                "../lib/template-base": {
                     TemplateBase: {
-                        addOptions: function(command) {
+                        addOptions: function (command) {
                             return command;
                         }
                     }
@@ -21,7 +20,6 @@ describe("app template", function () {
         }).Template;
 
         testCommand = new Command();
-
     });
 
     it("should have a commandDescription defined on prototype", function () {
@@ -33,7 +31,6 @@ describe("app template", function () {
     });
 
     describe("command", function () {
-
         it("should have --name option", function () {
             var command = Object.create(Template).addOptions(testCommand);
 

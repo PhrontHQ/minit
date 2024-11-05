@@ -5,16 +5,15 @@ var Path = require("path");
 var REPLACE_TITLE_REG = /(?:^|-)([^-])/g;
 
 exports.Template = Object.create(TemplateBase, {
-
     commandDescription: {
         value: "jasmine spec"
     },
 
     addOptions: {
-        value:function (command) {
+        value: function (command) {
             command = TemplateBase.addOptions.call(this, command);
-            command.option('-n, --name <name>', 'module name');
-            command.option('-t, --title [name]', 'title of the test');
+            command.option("-n, --name <name>", "module name");
+            command.option("-t, --title [name]", "title of the test");
             return command;
         }
     },
@@ -24,9 +23,9 @@ exports.Template = Object.create(TemplateBase, {
     },
 
     didSetOptions: {
-        value:function (options) {
+        value: function (options) {
             if (!options.title && options.name) {
-                options.title = options.name.replace(REPLACE_TITLE_REG, function(match, g1) { 
+                options.title = options.name.replace(REPLACE_TITLE_REG, function (match, g1) {
                     return g1.toUpperCase();
                 });
             }
@@ -38,16 +37,20 @@ exports.Template = Object.create(TemplateBase, {
     },
 
     finalDestination: {
-        get: function() {
+        get: function () {
             return Path.join(this.options.packageHome, "test", this.options.destination);
         }
     },
 
     finish: {
-        value: function() {
+        value: function () {
             var self = this;
-            return TemplateBase.finish.call(this).then(function(/*result*/) {
-                var message = ['add "test',self.options.destination,self.options.name + '-spec" to test/all.js '].join(Path.sep);
+            return TemplateBase.finish.call(this).then(function (/*result*/) {
+                var message = [
+                    'add "test',
+                    self.options.destination,
+                    self.options.name + '-spec" to test/all.js '
+                ].join(Path.sep);
                 console.log(message);
                 return Q.resolve(message);
             });

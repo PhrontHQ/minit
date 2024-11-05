@@ -32,13 +32,12 @@ POSSIBILITY OF SUCH DAMAGE.
 var ModuleTemplate = require("./module").Template;
 
 exports.Template = Object.create(ModuleTemplate, {
-
     commandDescription: {
         value: "component"
     },
 
     didSetOptions: {
-        value:function (options) {
+        value: function (options) {
             if (!options.extendsModuleId) {
                 options.extendsModuleId = "montage/ui/component";
             }
@@ -52,7 +51,7 @@ exports.Template = Object.create(ModuleTemplate, {
     },
 
     validateExtendsName: {
-        value: function(name) {
+        value: function (name) {
             //TODO derive the extendsName from the extendsModuleId
             return !name || "Montage" === name ? "Component" : name;
         }
@@ -63,13 +62,12 @@ exports.Template = Object.create(ModuleTemplate, {
     },
 
     finish: {
-        value: function() {
+        value: function () {
             var self = this;
-            return ModuleTemplate.finish.apply(self, arguments).then(function(result) {
+            return ModuleTemplate.finish.apply(self, arguments).then(function (result) {
                 console.log(self.options.name + "." + self.options.extensionName + " created.");
                 return result;
             });
         }
     }
-
 });

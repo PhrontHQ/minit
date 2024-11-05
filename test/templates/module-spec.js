@@ -1,6 +1,6 @@
 /*global describe,beforeEach,it,expect */
 
-var SandboxedModule = require('sandboxed-module');
+var SandboxedModule = require("sandboxed-module");
 var Command = require("commander").Command;
 
 var TemplateBase = require("../../lib/template-base").TemplateBase;
@@ -11,13 +11,12 @@ var mockFS = require("mocks").fs;
 describe("module template", function () {
     var testCommand;
     var Template;
-    beforeEach(function() {
-
-        Template = SandboxedModule.require('../../templates/module', {
+    beforeEach(function () {
+        Template = SandboxedModule.require("../../templates/module", {
             requires: {
-                '../lib/template-base': {
+                "../lib/template-base": {
                     TemplateBase: {
-                        addOptions: function(command) {
+                        addOptions: function (command) {
                             return command;
                         }
                     }
@@ -26,7 +25,6 @@ describe("module template", function () {
         }).Template;
 
         testCommand = new Command();
-
     });
 
     it("should have a commandDescription defined on prototype", function () {
@@ -38,7 +36,6 @@ describe("module template", function () {
     });
 
     describe("command", function () {
-
         it("should have --name option", function () {
             var command = Object.create(Template).addOptions(testCommand);
 
@@ -60,10 +57,10 @@ describe("module template", function () {
         });
 
         it("should have --extends-module-id option", function () {
-             var command = Object.create(Template).addOptions(testCommand);
+            var command = Object.create(Template).addOptions(testCommand);
 
-             expect(command.optionFor("--extends-module-id")).toBeDefined();
-         });
+            expect(command.optionFor("--extends-module-id")).toBeDefined();
+        });
 
         it("should have --copyright option", function () {
             var command = Object.create(Template).addOptions(testCommand);
@@ -71,7 +68,6 @@ describe("module template", function () {
             expect(command.optionFor("-c")).toBeDefined();
             expect(command.optionFor("--copyright")).toBeDefined();
         });
-
     });
 
     describe("option validation", function () {
@@ -136,7 +132,7 @@ describe("module template", function () {
     describe("didSetOptions", function () {
         var options;
         beforeEach(function () {
-            options = {name:"foo"};
+            options = { name: "foo" };
         });
         it("should default extensionName to js", function () {
             Template.didSetOptions(options);
@@ -164,6 +160,5 @@ describe("module template", function () {
             Template.didSetOptions(options);
             expect(options.name).toEqual("foo.ext");
         });
-
     });
 });
