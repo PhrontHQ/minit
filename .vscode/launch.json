@@ -7,9 +7,9 @@
        
         {
             "type": "node",
-            "runtimeVersion": "20",
             "request": "launch",
             "name": "npm test",
+            "runtimeVersion": "20",
             "skipFiles": ["<node_internals>/**"],
             "runtimeArgs": [
                 "--preserve-symlinks",
@@ -19,6 +19,19 @@
                 "--expose-internals",
                 "${workspaceFolder}/run-test.js"
             ]
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "minit create:app --name hello",
+            "runtimeExecutable": "node",
+            "program": "${workspaceFolder}/minit",
+            "args": [
+                "create:app",
+                "--name",
+                "hello"
+            ]
         }
+
     ]
 }
