@@ -27,7 +27,7 @@
     "mocks": "~0.0.11"
   },
   "engines": {
-    "node": "~20.13.0"
+    "node": "~20.14.0"
   },
   "bin": {
     "minit": "minit"
