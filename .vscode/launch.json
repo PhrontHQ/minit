@@ -8,6 +8,7 @@
             "type": "node",
             "request": "launch",
             "name": "create:app --name hello",
+            "runtimeExecutable": "node",
             "program": "${workspaceFolder}/minit",
             "args": [
                 "create:app",
@@ -20,7 +21,9 @@
             "runtimeVersion": "20",
             "request": "launch",
             "name": "npm test",
-            "skipFiles": ["<node_internals>/**"],
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
             "runtimeArgs": [
                 "--preserve-symlinks",
                 "--inspect",
