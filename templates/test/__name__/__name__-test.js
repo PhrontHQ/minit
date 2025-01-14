@@ -1,9 +1,5 @@
-var TestController = require("montage-testing/test-controller").TestController;
+const { TestController } = require("mod/testing/test-controller");
 
-exports.Test = TestController.specialize({
-    constructor: {
-        value: function {{name}}() {
-            this.super();
-        }
-    }
-});
+exports.Test = class Test extends TestController {
+
+};

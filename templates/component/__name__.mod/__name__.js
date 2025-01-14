@@ -1,7 +1,7 @@
 {{#copyright}}/* {{{copyright}}} */
 
 {{/copyright}}/**
- * @module "{{#destination}}{{destination}}/{{/destination}}{{name}}.reel"
+ * @module "{{#destination}}{{destination}}/{{/destination}}{{name}}.mod"
  */
 var {{extendsName}} = require("{{extendsModuleId}}").{{extendsName}};
 

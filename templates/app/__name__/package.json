@@ -3,15 +3,14 @@
     "version": "0.1.0",
     "description": "{{description}}",
     "dependencies": {
-        "montage": "~17.0.11",
-        "digit": "~3.0.0"
-    },
-    "devDependencies": {
-        "montage-testing": "~0.5.1"
+        "mod": "github:PhrontHQ/mod#main",
+        "digit": "github:PhrontHQ/digit#main"
     },
     "exclude": [
         "run-tests.html",
         "test"
     ],
-    "bundle": [ "ui/main.reel" ]
+    "bundle": [
+        "ui/main.mod"
+    ]
 }

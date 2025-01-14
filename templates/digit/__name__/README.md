@@ -36,7 +36,7 @@ The default project directory includes the following files and folders:
 
 * ui/  —  Contains the application user interface components.
 
-    By default, this directory contains one component: main.reel (the Main
+    By default, this directory contains one component: main.mod (the Main
     user interface component).
 
 In development, you can expand this project directory as necessary; for example,

@@ -90,7 +90,7 @@ Run `minit --help` for details of the templates available and their usages. The 
     -p, --package-home [path]   package home
     -d, --destination [path]    where the template will be expanded relative to the package-home
     -a, --author [name]        author
-    -m, --montage-path [name]  path to montage
+    -m, --mod-path [name]  path to mod
 ```
 
 ```bash
