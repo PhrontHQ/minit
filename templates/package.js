@@ -36,46 +36,30 @@ exports.Template = Object.create(TemplateBase, {
     },
 
     finish: {
-        value: function(destination) {
-            var self = this;
-            return TemplateBase.finish.call(this).then(function() {
-                var config = {
-                    prefix : path.join(destination, self.options.name),
-                    production : true,
-                    loglevel: "warn"
-                };
-                return self.installDependencies(config);
-            }).then(function() {
-                console.log("#");
-                console.log("# "+ self.options.name +" created and installed with production dependencies, run");
-                console.log("# > npm install .");
-                console.log("# to set up the testing dependencies");
-                console.log("#");
-            });
+        value: function (destination) {
+            const { name: packageName } = this.options;
+
+            return TemplateBase.finish
+                .call(this)
+                .then(() => {
+                    const packageLocation = path.join(destination, packageName);
+                    return this.installDependencies(packageLocation);
+                })
+                .catch((err) => logger.error(err))
+                .then(() => {
+                    console.log("# " + this.options.name + " created and installed with production dependencies, run");
+                    console.log("# > npm install .");
+                    console.log("# to set up the testing dependencies");
+                    console.log("#");
+                });
         }
     },
 
     installDependencies: {
-        value: function (config) {
-            return Q.ninvoke(npm, "load", (config || null))
-                .then(function () {
+        value: async function (packageLocation) {
+            const execOptions = { cwd: packageLocation };
 
-                    // npm is a singleton within a process; loading with a
-                    // new config does not appear to update the configuration
-                    // in particular, the prefix from the original configuration
-                    // is always used npm.config.set and other approaches
-                    // do not end up with a change to the necessary npm.dir
-                    // or npm.globalDir.
-                    // Changing npm.prefix directly here does work, though
-                    // if the configuration differed in other ways those might
-                    // need to be manually set directly on npm as well
-
-                    if (config.prefix) {
-                        npm.prefix = config.prefix;
-                    }
-
-                    return Q.ninvoke(npm.commands, "install");
-                });
+            return exec(`npm install --production  --loglevel=warn`, execOptions);
         }
     },
 
