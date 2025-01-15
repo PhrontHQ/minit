@@ -1,23 +1,11 @@
 const { TemplateBase } = require("../lib/template-base.js");
+const { logger } = require("../lib/logger");
 const process = require("process");
 const util = require("util");
-const pino = require("pino");
 const path = require("path");
 const fs = require("fs");
 
 const exec = util.promisify(require("child_process").exec);
-
-// Create logger instance
-// TODO: the log level should be configurable
-const logger = pino({
-    level: "debug",
-    transport: {
-        target: "pino-pretty",
-        options: {
-            colorize: true
-        }
-    }
-});
 
 exports.Template = Object.create(TemplateBase, {
     commandDescription: {
