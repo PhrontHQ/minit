@@ -3,6 +3,7 @@
 var jasmine = require('jasmine-node');
 var path = require('path');
 var Q = require("q");
+const process = require('process');
 
 //for(var key in jasmine) {
 //  global[key] = jasmine[key];

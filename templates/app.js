@@ -2,6 +2,8 @@ var PackageTemplate = require("./package").Template;
 var ArgumentError = require("../lib/error.js").ArgumentError;
 var fs = require('fs');
 var removeDiacritics = require("diacritics").remove;
+const process = require('process');
+
 
 var _fromCamelToDashes = function(name) {
     var s1 = name.replace(/([A-Z])/g, function (g) { return "-"+g.toLowerCase(); });

@@ -1,6 +1,6 @@
 
 This readme file provides a brief overview of the file and folder structure
-included in the default MontageJS project directory.
+included in the default Mod project directory.
 
 >IMPORTANT: Be sure to replace the contents of this readme file with information
 about the final application before deploying the application or passing it on to
@@ -12,18 +12,18 @@ Project Directory
 The default project directory includes the following files and folders:
 
 * assets/  -  Contains global stylesheets and images for the application.
-* index.html  -  Is the entry-point document for the application. 
+* index.html  -  Is the entry-point document for the application.
 * node_modules/  -  Contains the code dependencies required in development.
 
-    Includes Montage, the core framework, and Digit, a mobile-optimized user
-    interface widget set by default. Since MontageJS uses the CommonJS module 
-    system, you can leverage the npm ecosystem for additional modules. To add 
+    Includes Mod, the core framework, and Digit, a mobile-optimized user
+    interface widget set by default. Since Mod uses the CommonJS module
+    system, you can leverage the npm ecosystem for additional modules. To add
     dependencies (e.g., foo), use `npm install foo` in the project directory.
-    
-    NOTE: All packages in this directory must be included as dependencies 
+
+    NOTE: All packages in this directory must be included as dependencies
     in package.json.
 
-* package.json  -  Describes the application and the dependencies included in 
+* package.json  -  Describes the application and the dependencies included in
             the node_modules directory.
 * README.md  -  The default readme file.
 * run-tests.html  -  Is a page to run Jasmine tests manually in the browser.
@@ -32,11 +32,11 @@ The default project directory includes the following files and folders:
     By default, this directory includes all.js, a module that points the test runner
     to all jasmine specs.
 
-* ui/  -  Contains the application user interface components. 
+* ui/  -  Contains the application user interface components.
 
-    By default, this directory contains two components: main.reel (the Main
-    user interface component) and version.reel (which displays the current
-    MontageJS version).
+    By default, this directory contains two components: main.mod (the Main
+    user interface component) and version.mod (which displays the current
+    Mod version).
 
 * core/  -  Contains the core modules of the application logic.
 
@@ -50,10 +50,10 @@ depending on the project you may want to add the following folders:
 Unit Testing
 =========
 
-MontageJS uses some pure unit tests that are straightforward [Jasmine specs][1].
+Mod uses some pure unit tests that are straightforward [Jasmine specs][1].
 
-To install the test code, run `npm install` in your project folder. This installs the 
-the [montage-testing][2] package, which adds some useful utilities for writing 
+To install the test code, run `npm install` in your project folder. This installs the
+the [montage-testing][2] package, which adds some useful utilities for writing
 jasmine tests. You will need the file run-tests.html.
 
 For an example of how we implement unit testing, see the [digit][3] repository:
@@ -62,8 +62,8 @@ For an example of how we implement unit testing, see the [digit][3] repository:
 * `data-module="test/all"` inside the final script tag tells the system to load [test/all.js][5].
 * all.js specifies a list of module ids for the runner to execute.
 
->Note that in this example, all the tests load a page in an iframe using 
-`TestPageLoader.queueTest()`. These are akin to integration tests since they test 
+>Note that in this example, all the tests load a page in an iframe using
+`TestPageLoader.queueTest()`. These are akin to integration tests since they test
 the component in a real environment.
 
 We also test some components by [mocking their dependencies][6].

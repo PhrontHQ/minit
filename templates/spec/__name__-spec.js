@@ -1,4 +1,4 @@
-var Montage = require("montage").Montage;
+const { Montage } = require("mod/core/core");
 
 describe("test/{{#destination}}{{destination}}/{{/destination}}{{^destination}}{{/destination}}{{name}}-spec", function() {
     describe("{{title}}", function() {

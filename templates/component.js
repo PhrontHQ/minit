@@ -40,7 +40,7 @@ exports.Template = Object.create(ModuleTemplate, {
     didSetOptions: {
         value:function (options) {
             if (!options.extendsModuleId) {
-                options.extendsModuleId = "montage/ui/component";
+                options.extendsModuleId = "mod/ui/component";
             }
 
             options.extensionName = "reel";

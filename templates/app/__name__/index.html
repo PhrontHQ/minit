@@ -24,11 +24,15 @@
 
     <link rel="stylesheet" href="assets/style/style.css" />
 
-    <script src="node_modules/montage/montage.js" async></script>
-    <script type="text/montage-serialization">
+    <script src="node_modules/mod/montage.js" async></script>
+    <script type="text/mod-serialization">
     {
         "owner": {
-            "prototype": "montage/ui/loader.reel"
+            "prototype": "mod/ui/loader.mod",
+            "values": {
+                "mainModule": "ui/main.mod",
+                "mainName": "Main"
+            }
         }
     }
     </script>

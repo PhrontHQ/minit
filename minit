@@ -2,6 +2,8 @@
 
 var ArgumentError = require("./lib/error.js").ArgumentError;
 var program = require("./cli").command;
+const process = require('process');
+
 
 try {
     program.parse(process.argv);

@@ -61,7 +61,7 @@ exports.Template = Object.create(TemplateBase, {
                 options.extendsName = "Montage";
             }
             if (!options.extendsModuleId) {
-                options.extendsModuleId = "montage/core/core";
+                options.extendsModuleId = "mod/core/core";
             }
 
         }
@@ -94,7 +94,7 @@ exports.Template = Object.create(TemplateBase, {
         value: function(name) {
             // We accept the name in any format, dashed, spaced or camelcased
             // We then convert to to camelcase and back to get the consistent
-            // naming used in Montage
+            // naming used in Mod
             // remove spaces
             name = name.replace(/ /g, "-");
             // convert to camelcase

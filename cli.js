@@ -29,24 +29,33 @@ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 POSSIBILITY OF SUCH DAMAGE.
 </copyright> */
 
-var Command = require("commander").Command;
+const { Command } = require("commander");
 
-var config = require("./package.json");
-var create = require("./lib/create");
-var serve = require("./lib/serve");
+const config = require("./package.json");
+const create = require("./lib/create");
+const serve = require("./lib/serve");
 
-var cli = new Command();
-//extras
-cli.minitHome = __dirname + "/";
-//
-cli.version(config.version);
+/**
+ * Main CLI configuration
+ * Sets up the command-line interface with all available commands
+ */
+const cli = new Command();
+
+// Set up basic CLI properties
+cli.minitHome = __dirname + "/";  // Set root directory for the application
+cli.version(config.version);      // Add version command using package.json version
+
+// Add all template-based create commands
 create.addCommandsTo(cli);
-var serveCommand = cli.command('serve')
-    .description('serve current directory with minit server.')
-    .action(function(env){
-        serve.serve(env);
-    });
+
+// Add serve command for development server
+const serveCommand = cli
+    .command("serve")
+    .description("serve current directory with minit server.")
+    .action((env) => serve.serve(env));
+
+// Add serve-specific options
 serve.addOptions(serveCommand);
 
+// Export the configured CLI
 exports.command = cli;
-
