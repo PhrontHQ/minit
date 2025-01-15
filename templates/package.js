@@ -13,16 +13,16 @@ exports.Template = Object.create(TemplateBase, {
     },
 
     addOptions: {
-        value:function (command) {
+        value: function (command) {
             command = TemplateBase.addOptions.call(this, command);
-            command.option('-n, --name <name>', 'package name');
-            command.option('-c, --copyright [path]', 'copyright file');
+            command.option("-n, --name <name>", "package name");
+            command.option("-c, --copyright [path]", "copyright file");
             return command;
         }
     },
 
     didSetOptions: {
-        value:function (options) {
+        value: function (options) {
             if (options.copyright) {
                 options.copyright = this.validateCopyright(options.copyright);
             }
@@ -30,7 +30,7 @@ exports.Template = Object.create(TemplateBase, {
     },
 
     validateCopyright: {
-        value: function(path) {
+        value: function (path) {
             return fs.readFileSync(path, "utf-8");
         }
     },
