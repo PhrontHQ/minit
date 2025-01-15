@@ -1,4 +1,5 @@
 const { TemplateBase } = require("../lib/template-base.js");
+const { progressBar } = require("../lib/progress-bar");
 const { logger } = require("../lib/logger");
 const process = require("process");
 const util = require("util");
@@ -45,18 +46,30 @@ exports.Template = Object.create(TemplateBase, {
                     const packageLocation = path.join(destination, packageName);
                     return this.installDependencies(packageLocation);
                 })
-                .catch((err) => logger.error(err))
                 .then(() => {
-                    console.log("# " + this.options.name + " created and installed with production dependencies, run");
-                    console.log("# > npm install .");
-                    console.log("# to set up the testing dependencies");
-                    console.log("#");
+                    if (this.options.verbose) {
+                        logger.info("Dependencies Installed");
+                        logger.info(`${this.options.name} created and installed with production dependencies`);
+                    } else {
+                        progressBar.tick({ step: "Done" });
+                        console.log("#");
+                        console.log(`# ${this.options.name} created and installed with production dependencies, run`);
+                        console.log("# > npm install .");
+                        console.log("# to set up the testing dependencies");
+                        console.log("#");
+                    }
                 });
         }
     },
 
     installDependencies: {
         value: async function (packageLocation) {
+            if (this.options.verbose) {
+                logger.info("Installing Dependencies...");
+            } else {
+                progressBar.tick({ step: "Installing Dependencies" });
+            }
+
             const execOptions = { cwd: packageLocation };
 
             return exec(`npm install --production  --loglevel=warn`, execOptions);
